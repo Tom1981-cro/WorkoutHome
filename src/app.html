@@ -41,7 +41,7 @@ button{cursor:pointer}
 .list .n{font-weight:500;min-width:0} .list .v{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 .pill{display:inline-block;font:600 .75rem/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:3px;background:var(--tint);color:var(--accent)}
 .pill.done{background:transparent;border:1px solid var(--good);color:var(--good)}
-.week{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.week{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .slot{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:10px 8px;text-align:left;display:flex;flex-direction:column;gap:4px;min-width:0}
 .slot b{font:600 1.05rem/1.1 var(--display);text-transform:uppercase}
 .slot span{font-size:.78rem;color:var(--muted)}
@@ -91,7 +91,8 @@ input[type=number],textarea{background:var(--surface);border:1px solid var(--lin
 .rpe button[aria-pressed="true"],.toggle[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .pfoot{display:flex;gap:8px} .pfoot .btn{flex:1}
 svg.spark{width:84px;height:26px;flex:none}
-@media (max-width:380px){.week{grid-template-columns:repeat(2,1fr)} h1{font-size:2.1rem}}
+@media (max-width:520px){.week{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:380px){ h1{font-size:2.1rem}}
 @media (prefers-reduced-motion:reduce){.drain i{transition:none}}
 </style>
 
@@ -110,7 +111,7 @@ svg.spark{width:84px;height:26px;flex:none}
 /* ---------- Exercise library ---------- */
 // n name, eq: bw|db|kb, w start kg, side: per side, hold: timed, h how-to, e easier, x avoid
 const EX={
-gsq:{n:"Goblet squat",eq:"kb",w:8,h:["Hold the kettlebell (or one dumbbell) against your chest, elbows tucked.","Feet just wider than hips, toes slightly out. Sit down between your heels.","Go as deep as you can with a flat back, then drive up through the whole foot."],e:"Squat to a chair and stand up again.",x:"Knees caving in, heels lifting."},
+gsq:{n:"Goblet squat to chair",eq:"kb",w:8,h:["Stand in front of a sturdy chair. Hold the kettlebell (or one dumbbell) against your chest, elbows tucked.","Feet just wider than hips. Sit back and down slowly until you lightly touch the seat. Do not drop onto it.","Drive up through the whole foot, knees tracking over your toes. Use a lower seat only when the left knee is completely quiet."],e:"Put a cushion on the chair to shorten the range, or drop the weight.",x:"Knees caving in, bouncing off the seat, pushing through knee pain."},
 rdl:{n:"Dumbbell Romanian deadlift",eq:"db",w:6,h:["Stand tall, a dumbbell in each hand in front of your thighs, knees soft.","Push your hips straight back and slide the weights down your thighs to mid-shin. Back stays flat.","Squeeze your glutes to stand tall. You should feel hamstrings, not lower back."],e:"Shorten the range: stop at the knees.",x:"Rounding the back, bending the knees into a squat."},
 kdl:{n:"Kettlebell deadlift",eq:"kb",w:8,h:["Kettlebell on the floor between your ankles.","Hips back, flat back, grip the handle with both hands.","Push the floor away and stand tall. Lower it under control."],e:"Raise the kettlebell on a thick book.",x:"Lifting with the arms or a rounded back."},
 ipu:{n:"Incline push-up",eq:"bw",h:["Hands on a sofa arm, sturdy chair or worktop, body in one straight line.","Lower your chest to the edge, elbows about 45° from your ribs.","Press away until arms are straight. Keep hips level with shoulders."],e:"Use a higher surface.",x:"Sagging hips, flared elbows."},
@@ -121,9 +122,9 @@ flp:{n:"Dumbbell floor press",eq:"db",w:6,h:["Lie on your back, knees bent, a du
 ohp:{n:"Dumbbell overhead press",eq:"db",w:4,h:["Stand tall, dumbbells at shoulder height, palms forward or facing each other.","Squeeze glutes and abs, press straight up until arms are by your ears.","Lower under control to the shoulders."],e:"Do it seated with your back supported.",x:"Leaning back and arching the lower back."},
 gbr:{n:"Glute bridge",eq:"db",w:0,h:["Lie on your back, feet flat and close to your hips.","Push through your heels and lift hips until knees, hips and shoulders line up.","Squeeze glutes for 1 second, lower slowly. Add a dumbbell on the hips when 12 reps is easy."],e:"Smaller range.",x:"Arching the lower back at the top."},
 slb:{n:"Single-leg glute bridge",eq:"bw",side:1,h:["Set up as a glute bridge, then lift one foot off the floor.","Drive through the planted heel until hips are level.","Pause 1 second, lower slowly. Finish one side, then swap."],e:"Two-leg bridge with a dumbbell on the hips.",x:"Hips tilting to one side."},
-ssq:{n:"Split squat",eq:"db",w:0,side:1,h:["Take a long step forward and stay there. Feet hip-width apart for balance.","Drop the back knee straight down toward the floor, front shin near vertical.","Push through the front foot to stand. Hold dumbbells once bodyweight is easy."],e:"Hold a chair with one hand.",x:"Front heel lifting, leaning far forward."},
+ssq:{n:"Split squat",eq:"db",w:0,side:1,h:["Take a long step forward and stay there. Feet hip-width apart, one hand on a chair for balance.","Lower the back knee straight down, front shin vertical. Go only as deep as the front knee stays pain-free.","Push through the front heel to stand. Hold a dumbbell once 10 bodyweight reps are easy on both sides."],e:"Halve the range.",x:"Front heel lifting, leaning far forward."},
 rlu:{n:"Reverse lunge",eq:"db",w:4,side:1,h:["Stand tall with dumbbells at your sides.","Step one foot back and lower until both knees are about 90°.","Push through the front foot to return. Finish one side, then swap."],e:"Go back to split squats.",x:"Slamming the back knee on the floor."},
-bss:{n:"Bulgarian split squat",eq:"db",w:0,side:1,h:["Stand a long stride in front of a sofa or chair, rest the top of your back foot on it.","Lower straight down until the front thigh is near parallel.","Drive up through the front foot. Start with bodyweight; add dumbbells when 10 reps is clean."],e:"Reverse lunge.",x:"Standing too close to the bench, bouncing."},
+wsit:{n:"Wall sit",eq:"bw",hold:1,h:["Back flat against a wall, feet about two foot-lengths in front of it.","Slide down until your thighs are at an angle your left knee accepts. Half-way is fine to start.","Hold still and breathe. Weight through the heels, knees over ankles."],e:"Sit higher up the wall.",x:"Knees drifting in front of the toes, holding your breath."},
 slr:{n:"Single-leg Romanian deadlift",eq:"db",w:6,side:1,h:["Dumbbell in one hand, other hand lightly on a wall or chair.","Stand on the leg opposite the weight. Hinge forward as the free leg reaches back.","Keep hips square to the floor, then stand tall."],e:"Keep the back toes on the floor as a kickstand.",x:"Opening the hip toward the ceiling."},
 swg:{n:"Kettlebell swing",eq:"kb",w:8,h:["Kettlebell a foot in front of you. Hinge, grip it, and hike it back between your legs.","Snap your hips forward hard. Arms are ropes: the bell floats to chest height.","Let it fall, hinge at the last moment, and repeat. It is a hip hinge, not a squat."],e:"Kettlebell deadlift done briskly.",x:"Lifting with the shoulders, squatting the bell down."},
 thr:{n:"Dumbbell thruster",eq:"db",w:4,h:["Dumbbells at your shoulders, feet shoulder-width.","Squat down, then drive up fast.","Use that drive to press the weights overhead. Lower to shoulders and go again."],e:"Split it: squat, stand, then press.",x:"Pressing before you have stood up."},
@@ -137,19 +138,19 @@ suc:{n:"Suitcase carry",eq:"db",w:12,hold:1,side:1,h:["Hold one heavy dumbbell a
 // Conditioning moves: name, cue
 const CM={
 mar:["Fast march","Knees to hip height, pump the arms. No jumping."],
-bsq:["Bodyweight squat","Steady pace, full range."],
+bsq:["Bodyweight squat","Steady pace, to the depth your knee is happy with."],
 box:["Shadow boxing","Fast straight punches, feet moving, abs tight."],
-sbl:["Step-back lunge","Alternate legs. Light touch with the back knee."],
+hng:["Fast hip hinge","Hands on hips, push hips back, snap tall. Back flat, knees soft."],
 ccl:["Chair mountain climber","Hands on a chair, drive knees to chest one at a time."],
 sjk:["Step jack","Step one foot out as the arms go overhead. Alternate. No jump."],
 swg:["Kettlebell swing","Hips snap, bell floats. Put it down if form slips."],
 s2p:["Squat to press","Light dumbbells (2–4 kg). Squat, stand, press."],
 mcl:["Mountain climber","Hands on the floor, shoulders over wrists, run the knees in."],
-skt:["Skater step","Step wide side to side, reach across. Hop only if knees feel good."],
+fst:["Fast feet","Quick small steps on the spot, arms pumping. Feet barely leave the floor."],
 hbp:["Half burpee","Hands down, step feet back to plank, step in, stand. No jump."],
 thr:["Dumbbell thruster","Light dumbbells. Squat and drive into the press."],
-jsq:["Squat jump","Soft, quiet landings. Swap for fast squats if joints complain."],
-bur:["Burpee","Chest to floor optional. Step back instead of jumping if needed."]
+
+
 };
 const WARM=[["March on the spot",45,"Swing the arms, lift knees to hip height."],["Arm circles",30,"Big slow circles. Change direction halfway."],["Cat-cow",40,"On all fours. Round your back up, then let it sag gently."],["Hip hinge",40,"Hands on hips. Push hips back with a flat back, stand tall."],["Easy squat",45,"Slow and smooth. Only as deep as feels comfortable."],["Lunge with reach",50,"Step back into a lunge and reach both arms up. Alternate legs."],["Glute bridge",40,"On your back, feet flat. Lift hips, squeeze for 1 second."]];
 const COOL=[["Hamstring stretch",40,"Sit, one leg straight, hinge forward with a flat back. Swap halfway."],["Hip flexor stretch, left",30,"Half-kneel, tuck the tailbone, push hips gently forward."],["Hip flexor stretch, right",30,"Same on the other side."],["Chest stretch",40,"Forearm on a door frame, turn your body away. Swap halfway."],["Child's pose",40,"Knees wide, sit back on your heels, arms long."],["Slow breathing",30,"In through the nose for 4, out for 6."]];
@@ -157,44 +158,50 @@ const COOL=[["Hamstring stretch",40,"Sit, one leg straight, hinge forward with a
 /* ---------- The 12-week plan ---------- */
 const PHASES=[
  {n:"Foundation",t:"Weeks 1–4",d:"Relearn the five basic patterns: squat, hinge, push, pull, brace. Weights should feel almost too easy. That is the point: tendons and joints adapt slower than muscles."},
- {n:"Build",t:"Weeks 5–8",d:"Same patterns, harder versions, more load. Kettlebell swings arrive. Conditioning moves to 30 seconds on, 30 off. Week 8 is a planned lighter week."},
- {n:"Progress",t:"Weeks 9–12",d:"Single-leg work and four sets on the main lifts make 12 kg feel heavy again. Conditioning becomes true HIIT: 40 seconds on, 20 off, with optional jumps."}];
+ {n:"Build",t:"Weeks 5–8",d:"Same patterns, harder versions, more load. Kettlebell swings arrive. Intervals reach 30 seconds on, 30 off, and the weekly walk reaches 30 minutes. Week 8 is a planned lighter week."},
+ {n:"Progress",t:"Weeks 9–12",d:"Slow lowering, single-leg work and four sets on the main lifts make 12 kg feel heavy again. Intervals build to 40 seconds on, 20 off, with no jumping at any point. The walk reaches 45 minutes."}];
 // [sets, low reps, high reps, rest seconds] per week
 const SCHEME=[[2,10,10,75],[2,12,12,75],[3,10,10,75],[3,12,12,75],[3,8,10,75],[3,10,12,75],[3,10,12,60],[2,10,10,75],[3,8,10,75],[4,8,10,75],[4,10,12,60],[3,10,12,60]];
 const PLANK=[20,25,30,30,35,40,45,30,45,50,55,60];
-const WEEKNOTE=["Two easy sets. Finish feeling you could do it all again.","Same weights, two more reps per set.","Third set added. Keep 3 reps in reserve.","Last foundation week. Add weight where 12 reps is comfortable.","New exercises. Drop the weight to learn them.","Build the reps back up to 12.","Heaviest build week. Shorter rests.","Lighter week on purpose: two sets, same weights. Do not skip it and do not add to it.","Single-leg work starts. Balance first, load second.","Fourth set on the first four exercises.","Hardest week of the plan.","Final week. Try to beat your week 9 numbers, then redo the benchmarks."];
+const WEEKNOTE=["Two easy sets. Finish feeling you could do it all again.","Same weights, two more reps per set.","Third set added. Keep 3 reps in reserve.","Last foundation week. Add weight where 12 reps is comfortable.","New exercises. Drop the weight to learn them.","Build the reps back up to 12.","Heaviest build week. Shorter rests.","Lighter week on purpose: two sets, same weights. Do not skip it and do not add to it.","Slower lowering and more single-leg work. Control first, load second.","Fourth set on the first four exercises.","Hardest week of the plan.","Final week. Try to beat your week 9 numbers, then redo the benchmarks."];
 // [exercise, note, {lo,hi}]
 const TPL=[
  {A:[["gsq"],["rdl"],["ipu"],["row"],["gbr"],["dbg",null,{lo:6,hi:8}]],
-  B:[["ssq"],["flp"],["kdl"],["sar"],["ohp"],["plk"]]},
+  B:[["kdl"],["flp"],["wsit"],["sar"],["ohp"],["plk"]]},
  {A:[["gsq","3 seconds down on every rep"],["rdl"],["pu","Use the incline version if you cannot do full reps"],["row"],["ohp"],["slb"],["plk"]],
-  B:[["rlu"],["swg",null,{lo:12,hi:15}],["flp"],["sar","Pause 1 second at the top"],["slr"],["ctp"],["spl"]]},
- {A:[["bss"],["rdl","3 seconds down, pause at the bottom"],["pu","3 seconds down"],["sar"],["thr"],["slb"],["plk"]],
-  B:[["gsq","1½ reps: down, half-way up, down, all the way up"],["swg",null,{lo:15,hi:20}],["slr"],["flp","3 seconds down"],["row"],["arn"],["suc"]]}
+  B:[["ssq","Left knee decides the depth"],["swg",null,{lo:12,hi:15}],["flp"],["sar","Pause 1 second at the top"],["slr"],["ctp"],["spl"]]},
+ {A:[["rlu","3 seconds down"],["rdl","3 seconds down, pause at the bottom"],["pu","3 seconds down"],["sar"],["thr"],["slb"],["plk"]],
+  B:[["gsq","3 seconds down, pause 2 seconds just above the chair"],["swg",null,{lo:15,hi:20}],["slr"],["flp","3 seconds down"],["row"],["arn"],["wsit"]]}
 ];
 // [work, rest, rounds, move set]
-const HIIT=[[20,40,2,0],[20,40,2,0],[30,30,2,1],[30,30,2,1],[30,30,3,2],[30,30,3,2],[35,25,3,2],[30,30,2,2],[40,20,3,3],[40,20,3,3],[40,20,4,3],[40,20,4,3]];
-const MOVES=[["mar","bsq","box","sbl","ccl"],["mar","bsq","box","sbl","ccl","sjk"],["swg","s2p","mcl","skt","hbp"],["swg","thr","mcl","jsq","bur"]];
-const DAYS=["Mon","Wed","Fri","Sat or Sun"];
+const HIIT=[[20,40,2,0],[20,40,2,0],[25,35,2,1],[25,35,3,1],[30,30,3,2],[30,30,3,2],[30,30,3,2],[30,30,2,2],[35,25,3,3],[35,25,3,3],[40,20,3,3],[40,20,3,3]];
+const WALK=[20,20,25,25,30,30,35,30,35,40,40,45];
+const MOVES=[["mar","box","hng","ccl","sjk"],["mar","bsq","box","ccl","sjk"],["swg","s2p","mcl","box","hbp"],["swg","thr","mcl","fst","hbp"]];
+const DAYS=["Mon","Tue","Wed","Fri","Sat or Sun"];
+const LABEL=s=>s.type==="hiit"?"Intervals":s.type==="walk"?"Walk":s.title;
+const KIT=s=>s.type==="walk"?"comfortable shoes":s.type==="hiit"?(s.w>4?"kettlebell and light dumbbells":"a sturdy chair"):"dumbbells, kettlebell, chair";
 const phaseOf=w=>w<=4?0:w<=8?1:2;
 
 function strength(w,slot,key){
   const [sets,lo,hi,rest]=SCHEME[w-1], items=TPL[phaseOf(w)][key];
   const ex=items.map((it,i)=>{
     const e=EX[it[0]], o=it[2]||{};
-    if(e.hold){const p=PLANK[w-1];return {id:it[0],sets:Math.min(sets,2),secs:it[0]==="plk"?p:it[0]==="spl"?Math.max(15,Math.round(p*.6/5)*5):30,rest:45,note:it[1]}}
+    if(e.hold){const p=PLANK[w-1];return {id:it[0],sets:Math.min(sets,2),secs:it[0]==="plk"||it[0]==="wsit"?p:it[0]==="spl"?Math.max(15,Math.round(p*.6/5)*5):30,rest:45,note:it[1]}}
     return {id:it[0],sets:i<4?sets:Math.min(sets,3),lo:o.lo||lo,hi:o.hi||hi,rest:i<4?rest:60,note:it[1]};
   });
   return {id:"w"+w+"s"+slot,w,slot,type:"strength",title:"Strength "+key,ex};
 }
 function hiit(w,slot){
   const [work,rest,rounds,m]=HIIT[w-1];
-  return {id:"w"+w+"s"+slot,w,slot,type:"hiit",title:w<=4?"Low-impact conditioning":w<=8?"Intervals":"HIIT",work,rest,rounds,moves:MOVES[m]};
+  return {id:"w"+w+"s"+slot,w,slot,type:"hiit",title:w<=4?"Easy intervals":w<=8?"Intervals":"HIIT",work,rest,rounds,moves:MOVES[m]};
 }
-function weekSessions(w){return [strength(w,1,"A"),strength(w,2,"B"),strength(w,3,w%2?"A":"B"),hiit(w,4)]}
+function walk(w,slot){return {id:"w"+w+"s"+slot,w,slot,type:"walk",title:"Brisk walk",mins:WALK[w-1]}}
+// order within the week; ids keep their slot number
+function weekSessions(w){return [strength(w,1,"A"),walk(w,5),strength(w,2,"B"),strength(w,3,w%2?"A":"B"),hiit(w,4)].map((s,i)=>(s.pos=i+1,s))}
 const ALL=[];for(let w=1;w<=12;w++)ALL.push(...weekSessions(w));
 const BYID=Object.fromEntries(ALL.map(s=>[s.id,s]));
 function minutes(s){
+  if(s.type==="walk")return s.mins;
   let t=WARM.reduce((a,x)=>a+x[1],0)+COOL.reduce((a,x)=>a+x[1],0);
   if(s.type==="hiit")t+=s.rounds*s.moves.length*(s.work+s.rest)+(s.rounds-1)*60;
   else s.ex.forEach(e=>{const sides=EX[e.id].side?2:1;t+=e.sets*((e.secs?e.secs*sides:(e.hi*3.5*(sides>1?1.6:1)))+e.rest)});
@@ -212,16 +219,19 @@ function save(){S.t=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S))}c
   if(cloud){clearTimeout(cloudTimer);cloudTimer=setTimeout(push,1200)}}
 function push(){if(!cloud)return;if(cloudBusy){cloudDirty=true;return}cloudBusy=true;
   cloud.set({json:JSON.stringify(S),t:S.t}).catch(()=>{}).then(()=>{cloudBusy=false;if(cloudDirty){cloudDirty=false;push()}})}
+async function pull(){ // adopt the account copy when it is newer than this device's
+  if(!cloud)return;const snap=await cloud.get();const d=snap&&snap.data?snap.data():null;
+  if(d&&typeof d.json==="string"){try{const r=JSON.parse(d.json);
+    if((r.t||0)>(S.t||0)&&r.done&&player.hidden){S=Object.assign({v:1,done:{},bench:{},sound:true,active:null},r);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}render()}}catch(e){}}
+  if(S.t&&(!d||(d.t||0)<S.t))push();
+}
 (async function(){ // account storage when opened inside Claude; otherwise this device only
   if(!window.claude||!window.claude.use)return;
   const [db,user]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);
   if(!db||!user)return;const id=await user.id();if(!id)return;
-  const ref=db.collection("data/users/"+id).doc("state");
-  const snap=await ref.get();const d=snap&&snap.data?snap.data():null;
-  if(d&&typeof d.json==="string"){try{const r=JSON.parse(d.json);
-    if((r.t||0)>(S.t||0)&&r.done){S=Object.assign({v:1,done:{},bench:{},sound:true,active:null},r);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}}catch(e){}}
-  cloud=ref;if(S.t&&(!d||(d.t||0)<S.t))push();
-  if(player.hidden)render();
+  cloud=db.collection("data/users/"+id).doc("state");
+  await pull();if(player.hidden)render();
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)pull().catch(()=>{})});
 })().catch(()=>{});
 
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -262,18 +272,19 @@ function exDetail(id){const e=EX[id];
   <p class="small"><b>Easier:</b> ${e.e}</p><p class="small"><b>Avoid:</b> ${e.x}</p>
   <p class="small"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(e.n+" proper form")}" target="_blank" rel="noopener">Watch a demo video</a></p>`}
 function sessionBody(s){
-  if(s.type==="hiit")return `<p>${s.work}s work, ${s.rest}s rest. ${s.rounds} rounds of ${s.moves.length} moves, 1 minute between rounds.</p>
+  if(s.type==="walk")return `<p>${s.mins} minutes outdoors or on a treadmill, at a pace where you can speak in full sentences but could not sing. Breathe through your nose if you can.</p><p class="muted small">This is the session that rebuilds your lungs. It should feel easy. If you finish breathless, you walked too fast.</p>`;
+  if(s.type==="hiit")return `<p>${s.work}s work, ${s.rest}s rest. ${s.rounds} rounds of ${s.moves.length} moves, 1 minute between rounds. No jumping.</p><p class="muted small">Work at a pace where you can still get a short sentence out. Gasping means slow down, not stop.</p>
    <ul class="list">${s.moves.map(m=>`<li><span class="n">${CM[m][0]}<br><span class="muted small">${CM[m][1]}</span></span></li>`).join("")}</ul>`;
   return s.ex.map(e=>`<details><summary>${EX[e.id].n}<span>${e.sets} × ${target(e)}</span></summary><div class="in">${e.note?`<p class="note">${e.note}</p>`:""}${exDetail(e.id)}</div></details>`).join("");
 }
 function weekRow(w,nx){
   return `<div class="week">${weekSessions(w).map(s=>{const d=S.done[s.id];
-    return `<button class="slot ${d?"is-done":nx&&nx.id===s.id?"is-next":""}" data-a="open" data-s="${s.id}"><b>${s.type==="hiit"?"Cardio":s.title}</b><span>${d?"Done "+ago(d.d):DAYS[s.slot-1]}</span></button>`}).join("")}</div>`}
+    return `<button class="slot ${d?"is-done":nx&&nx.id===s.id?"is-next":""}" data-a="open" data-s="${s.id}"><b>${LABEL(s)}</b><span>${d?"Done "+ago(d.d):DAYS[s.pos-1]}</span></button>`}).join("")}</div>`}
 const views={
 today(){
   const nx=nextSession();
   if(!nx)return `<p class="eyebrow">12 weeks complete</p><h1>Plan finished</h1>
-    <p>48 sessions done. Redo the benchmarks on the Progress tab and compare them with week 1.</p>
+    <p>${ALL.length} sessions done. Redo the benchmarks on the Progress tab and compare them with week 1.</p>
     <p class="note">You have outgrown 12 kg for squats and deadlifts. The next step is heavier equipment (a 16–20 kg kettlebell or 20 kg dumbbells), not another round of the same plan.</p>`;
   const ph=PHASES[phaseOf(nx.w)],lastId=[...ALL].reverse().find(s=>S.done[s.id]),last=lastId&&S.done[lastId.id];
   let coach=WEEKNOTE[nx.w-1];
@@ -283,16 +294,16 @@ today(){
     else if(last.pain)coach="You flagged pain last session. Skip or swap the move that caused it, keep the weights the same, and see a physio if it is still there in a week.";
     else if(last.rpe>=9)coach="Last session was a "+last.rpe+"/10. That is too hard for this stage. Keep today's weights the same and aim for a 7.";}
   const act=S.active&&BYID[S.active.sid];
-  return `<header class="stack-s"><p class="eyebrow">Week ${nx.w} of 12 · ${ph.n} · ${doneCount()}/48 done</p>
-    <h1>${nx.title}</h1><p class="muted">Session ${nx.slot} of 4 this week · about ${minutes(nx)} min · ${nx.type==="hiit"?"no equipment needed"+(nx.w>4?" except kettlebell and light dumbbells":""):"dumbbells and kettlebell"}</p></header>
+  return `<header class="stack-s"><p class="eyebrow">Week ${nx.w} of 12 · ${ph.n} · ${doneCount()}/${ALL.length} done</p>
+    <h1>${nx.title}</h1><p class="muted">Session ${nx.pos} of 5 this week · about ${minutes(nx)} min · ${KIT(nx)}</p></header>
    ${act?`<div class="panel stack"><p><b>${act.title}, week ${act.w}</b> is in progress.</p><div class="row"><button class="btn grow" data-a="resume">Resume</button><button class="btn ghost danger" data-a="discard">Discard</button></div></div>`:""}
    <button class="btn primary" data-a="start" data-s="${nx.id}">Start session</button>
    <p class="note">${coach}</p>
-   <section class="stack"><h2>What you will do</h2><p class="muted small">5 min guided warm-up, the work below, 4 min cool-down. Tap an exercise for instructions.</p><div>${sessionBody(nx)}</div></section>
-   <section class="stack"><h2>This week</h2>${weekRow(nx.w,nx)}<p class="muted small">Leave a day between strength sessions. The days are a suggestion; the order is not.</p></section>`;
+   <section class="stack"><h2>What you will do</h2>${nx.type==="walk"?"":`<p class="muted small">5 min guided warm-up, the work below, 4 min cool-down. Tap an exercise for instructions.</p>`}<div>${sessionBody(nx)}</div></section>
+   <section class="stack"><h2>This week</h2>${weekRow(nx.w,nx)}<p class="muted small">Leave a day between strength sessions. The walk can go on any day, including a strength day.</p></section>`;
 },
 plan(){
-  const nx=nextSession();let h=`<header class="stack-s"><p class="eyebrow">12 weeks · 48 sessions</p><h1>The plan</h1><p class="muted">Three strength sessions and one conditioning session per week. Tap any session to see it or start it.</p></header>`;
+  const nx=nextSession();let h=`<header class="stack-s"><p class="eyebrow">12 weeks · ${ALL.length} sessions</p><h1>The plan</h1><p class="muted">Each week: three strength sessions, one brisk walk and one interval session. Tap any session to see it or start it.</p></header>`;
   PHASES.forEach((p,i)=>{h+=`<section class="stack"><div class="stack-s"><p class="eyebrow">${p.t}</p><h2>${p.n}</h2><p>${p.d}</p></div>`;
     for(let w=i*4+1;w<=i*4+4;w++)h+=`<div class="stack-s"><p class="small"><b>Week ${w}</b> <span class="muted">· ${WEEKNOTE[w-1]}</span></p>${weekRow(w,nx)}</div>`;
     h+=`</section>`});
@@ -301,7 +312,7 @@ plan(){
 session(){
   const s=BYID[V.sid],d=S.done[s.id];
   return `<div><button class="btn ghost" data-a="tab" data-t="plan">← Plan</button></div>
-   <header class="stack-s"><p class="eyebrow">Week ${s.w} · ${PHASES[phaseOf(s.w)].n} · Session ${s.slot}</p><h1>${s.title}</h1><p class="muted">About ${minutes(s)} min${d?" · done "+ago(d.d)+(d.rpe?" · effort "+d.rpe+"/10":""):""}</p></header>
+   <header class="stack-s"><p class="eyebrow">Week ${s.w} · ${PHASES[phaseOf(s.w)].n} · Session ${s.pos}</p><h1>${s.title}</h1><p class="muted">About ${minutes(s)} min${d?" · done "+ago(d.d)+(d.rpe?" · effort "+d.rpe+"/10":""):""}</p></header>
    <button class="btn primary" data-a="start" data-s="${s.id}">${d?"Do it again":"Start session"}</button>
    <div>${sessionBody(s)}</div>
    ${d&&d.sets&&Object.keys(d.sets).length?`<section class="stack"><h2>What you logged</h2><ul class="list">${Object.keys(d.sets).map(k=>`<li><span class="n">${EX[k].n}</span><span class="v">${setsText(k,d.sets[k])}</span></li>`).join("")}</ul>${d.note?`<p class="muted">${esc(d.note)}</p>`:""}</section>`:""}`;
@@ -315,14 +326,14 @@ progress(){
     const pts=v.map((y,i)=>[4+i*(76/(v.length-1)),22-(y-lo)/r*18]);
     return `<svg class="spark" viewBox="0 0 84 26" aria-hidden="true"><polyline fill="none" stroke="var(--accent)" stroke-width="2" points="${pts.map(p=>p.join(",")).join(" ")}"/><circle cx="${pts[pts.length-1][0]}" cy="${pts[pts.length-1][1]}" r="3" fill="var(--accent)"/></svg>`};
   const one=(k,x)=>EX[k].hold?fmtS(x.r):x.w?kg(x.w)+" × "+x.r:x.r+" reps";
-  const B=[["pu","Push-ups in one set","reps"],["plk","Longest plank","sec"],["sq","Goblet squats in 60 s (8 kg)","reps"]];
+  const B=[["pu","Push-ups in one set","reps"],["plk","Longest plank","sec"],["hr","Resting pulse on waking","bpm"],["km","Brisk 1 km walk","min"]];
   return `<header class="stack-s"><p class="eyebrow">Your record</p><h1>Progress</h1></header>
-   <div class="stat"><div><b>${n}/48</b><span>sessions done</span></div><div><b>${vol.toLocaleString()}</b><span>kg lifted (weight × reps)</span></div><div><b>${mins}</b><span>minutes trained</span></div></div>
+   <div class="stat"><div><b>${n}/${ALL.length}</b><span>sessions done</span></div><div><b>${vol.toLocaleString()}</b><span>kg lifted (weight × reps)</span></div><div><b>${mins}</b><span>minutes trained</span></div></div>
    <section class="stack"><h2>Attendance</h2><div class="grid12">${Array.from({length:12},(_,i)=>`<div>${weekSessions(i+1).map(s=>`<i class="${S.done[s.id]?"on":""}"></i>`).join("")}<em>${i+1}</em></div>`).join("")}</div><p class="muted small">One column per week, one bar per session.</p></section>
    <section class="stack"><h2>Lifts</h2>${Object.keys(hist).length?`<ul class="list">${Object.keys(hist).map(k=>{const a=hist[k];return `<li style="align-items:center"><span class="n">${EX[k].n}<br><span class="muted small">${a.length>1?one(k,a[0])+" → ":""}${one(k,a[a.length-1])}</span></span>${spark(k,a)}</li>`}).join("")}</ul><p class="muted small">Best set per session, first to latest.</p>`:`<p class="muted">Nothing logged yet. Each exercise appears here after your first session, with your best set from every workout.</p>`}</section>
-   <section class="stack"><h2>Benchmarks</h2><p class="muted small">Test when fresh, at the start of weeks 1, 6 and 12. Stop each test when form breaks.</p>
-    <div class="bench small"><span></span><b>Wk 1</b><b>Wk 6</b><b>Wk 12</b>${B.map(b=>`<span>${b[1]} <span class="muted">(${b[2]})</span></span>`+[1,6,12].map(w=>`<input type="number" inputmode="numeric" min="0" id="b-${b[0]}-${w}" data-b="${b[0]}-${w}" value="${esc((S.bench||{})[b[0]+"-"+w]??"")}" aria-label="${b[1]}, week ${w}">`).join("")).join("")}</div></section>
-   <section class="stack"><h2>Your data</h2><p class="muted small">${cloud?"Saved to your Claude account and on this device.":"Saved in this browser only. Clearing site data erases it, so copy a backup now and then."}</p>
+   <section class="stack"><h2>Benchmarks</h2><p class="muted small">Test when fresh, at the start of weeks 1, 6 and 12. Stop each test when form breaks. A falling resting pulse and a faster kilometre are your lungs and heart recovering.</p>
+    <div class="bench small"><span></span><b>Wk 1</b><b>Wk 6</b><b>Wk 12</b>${B.map(b=>`<span>${b[1]} <span class="muted">(${b[2]})</span></span>`+[1,6,12].map(w=>`<input type="number" inputmode="decimal" min="0" step="any" id="b-${b[0]}-${w}" data-b="${b[0]}-${w}" value="${esc((S.bench||{})[b[0]+"-"+w]??"")}" aria-label="${b[1]}, week ${w}">`).join("")).join("")}</div></section>
+   <section class="stack"><h2>Your data</h2><p class="muted small">${cloud?"Saved to your Claude account: open this page on any phone or tablet signed in to Claude and it continues where you left off.":"Saved in this browser only. Clearing site data erases it, so copy a backup now and then."}</p>
     <div class="row"><button class="btn" data-a="backup">Copy backup</button><button class="btn" data-a="showrestore">Restore</button><button class="btn ghost danger" data-a="askreset">Reset</button></div>
     <div id="datazone" class="stack"></div></section>`;
 },
@@ -334,7 +345,15 @@ guide(){
     <p><b>Progress one thing at a time.</b> First hit the top of the rep range on every set. Then add 1–2 kg and start again at the bottom of the range. The app tells you when.</p>
     <p><b>When 12 kg is not enough.</b> Slow the lowering to 3–4 seconds, pause at the bottom, or use one leg. The plan already does this from week 5.</p>
     <p class="note warn"><b>Pain rule.</b> Burning muscles and next-day soreness are normal. Sharp, pinching, or joint pain is not: stop that exercise, do the easier version, and get it checked if it lasts a week. See a doctor before starting if you have a heart condition, high blood pressure, or an old injury.</p></section>
-   <section class="stack"><h2>The week</h2><ul class="list"><li><span class="n">Mon</span><span class="v">Strength A</span></li><li><span class="n">Wed</span><span class="v">Strength B</span></li><li><span class="n">Fri</span><span class="v">Strength A or B</span></li><li><span class="n">Sat or Sun</span><span class="v">Conditioning</span></li><li><span class="n">Other days</span><span class="v">Walk 20–30 min</span></li></ul>
+   <section class="stack"><h2>Your left knee</h2>
+    <p>The plan is built around it: squats go to a chair so depth is controlled, hip-dominant lifts (deadlifts, bridges, swings) carry most of the leg work, wall sits rebuild the quads without movement, and nothing jumps or twists.</p>
+    <p><b>Traffic light.</b> Discomfort up to 3 out of 10 that is gone within 24 hours: carry on. 4–5, or still there next morning: halve the range and drop the weight next time. Sharp pain, swelling, locking or giving way: stop that exercise and see a physio.</p>
+    <p>On single-leg moves, do the left side first and match the right to it. Never let the good side run ahead.</p></section>
+   <section class="stack"><h2>Smoking and your cardio</h2>
+    <p>Heavy smoking or vaping is the limit on your fitness, not your legs. Carbon monoxide from cigarettes takes oxygen-carrying capacity out of your blood, and nicotine pushes your heart rate up before you have moved. That is why the plan builds a walking base first and brings intervals up slowly.</p>
+    <p><b>No nicotine for an hour before a session and 30 minutes after.</b> It is the cheapest performance gain available to you.</p>
+    <p class="note warn">At 45 and a heavy smoker, get a blood-pressure and heart check from your GP before the interval sessions get hard (week 5). Stop immediately and seek help for chest pain or tightness, dizziness, or breathlessness that does not settle within a few minutes of resting.</p></section>
+   <section class="stack"><h2>The week</h2><ul class="list"><li><span class="n">Mon</span><span class="v">Strength A</span></li><li><span class="n">Tue</span><span class="v">Brisk walk</span></li><li><span class="n">Wed</span><span class="v">Strength B</span></li><li><span class="n">Fri</span><span class="v">Strength A or B</span></li><li><span class="n">Sat or Sun</span><span class="v">Intervals</span></li><li><span class="n">Other days</span><span class="v">Easy walk, any length</span></li></ul>
     <p class="muted small">Missed a session? Do it next. Missed a week? Repeat the last week you finished. Never double up.</p></section>
    <section class="stack"><h2>Exercises</h2><div>${Object.keys(EX).map(k=>`<details><summary>${EX[k].n}<span>${{bw:"Bodyweight",db:"Dumbbells",kb:"Kettlebell"}[EX[k].eq]}</span></summary><div class="in">${exDetail(k)}</div></details>`).join("")}</div></section>`;
 }};
@@ -356,6 +375,7 @@ document.addEventListener("visibilitychange",()=>{if(!document.hidden&&!player.h
 const P={s:null,steps:[],idx:0,sets:{},t0:0,left:0,total:0,run:false,end:0,lastS:0,cur:{w:0,r:0},rpe:0,pain:false,ask:false};
 function buildSteps(s){
   const st=[{k:"intro"}];
+  if(s.type==="walk"){st.push({k:"timed",g:"Brisk walk",n:"Walk",c:"Full sentences, no singing. You can lock your phone; the clock keeps time.",secs:s.mins*60,ph:"work"},{k:"finish"});return st}
   WARM.forEach(x=>st.push({k:"timed",g:"Warm-up",n:x[0],c:x[2],secs:x[1]}));
   if(s.type==="hiit"){
     st.push({k:"timed",g:"Get ready",n:"Round 1 starts",c:"First up: "+CM[s.moves[0]][0],secs:15,ph:"rest"});
@@ -380,7 +400,8 @@ function buildSteps(s){
 }
 function openPlayer(sid,resume){
   const s=BYID[sid];P.s=s;P.steps=buildSteps(s);P.rpe=0;P.pain=false;P.ask=false;
-  if(resume&&S.active&&S.active.sid===sid){P.sets=S.active.sets||{};P.t0=S.active.t0;player.hidden=false;enter(Math.min(S.active.idx,P.steps.length-1),false)}
+  if(resume&&S.active&&S.active.sid===sid){P.sets=S.active.sets||{};P.t0=S.active.t0;player.hidden=false;const end=S.active.end;enter(Math.min(S.active.idx,P.steps.length-1),false);
+    if(end&&end>Date.now()&&P.steps[P.idx].k==="timed"){P.left=end-Date.now();startT();draw()}}
   else{P.sets={};P.t0=Date.now();player.hidden=false;enter(0,false)}
   awake();
 }
@@ -392,10 +413,10 @@ function enter(i,auto){
   if(st.k==="set"||st.k==="hold"){const e=st.e,x=EX[e.id],mine=P.sets[e.id]||[],prev=mine[st.set-1]||mine[mine.length-1],last=lastLog(e.id,P.s.id);
     const ref=prev||(last&&(last[st.set-1]||last[last.length-1]));
     P.cur={w:ref?ref.w||0:(x.eq==="bw"?0:x.w||0),r:mine[st.set-1]?mine[st.set-1].r:(e.lo===e.hi?e.hi:e.lo)}}
-  if(i>0&&i<P.steps.length-1){S.active={sid:P.s.id,idx:i,sets:P.sets,t0:P.t0};save()}
+  if(i>0&&i<P.steps.length-1){S.active={sid:P.s.id,idx:i,sets:P.sets,t0:P.t0,end:P.run?P.end:0};save()}
   draw();player.scrollTop=0;
 }
-function startT(){P.end=Date.now()+P.left;P.run=true}
+function startT(){P.end=Date.now()+P.left;P.run=true;if(S.active&&P.steps[P.idx].k==="timed"&&P.steps[P.idx].secs>=120){S.active.end=P.end;save()}}
 function timerDone(){
   const st=P.steps[P.idx],nx=P.steps[P.idx+1];
   beep(nx&&nx.ph==="work"?990:nx&&nx.k==="finish"?660:520,.3);buzz(200);
@@ -416,10 +437,11 @@ function draw(){
   const st=P.steps[P.idx],s=P.s,pct=P.idx/(P.steps.length-1)*100;let b="",foot="",cls="";
   if(st.k==="intro"){
     b=`<p class="eyebrow">Week ${s.w} · Session ${s.slot}</p><h1>${s.title}</h1>
-     <p>About ${minutes(s)} minutes. Clear a space the size of a yoga mat. ${s.type==="strength"?"Put your dumbbells and kettlebell within reach, plus a sturdy chair.":s.w>4?"Have the kettlebell and light dumbbells ready.":"A sturdy chair is all you need."}</p>
-     <p class="note">${WEEKNOTE[s.w-1]}</p>
-     <p class="muted small">The warm-up runs on its own timer with beeps for the last three seconds. Turn your phone volume up.</p>`;
-    foot=`<button class="btn primary" data-a="next">Start warm-up</button>`;
+     ${s.type==="walk"?`<p>${s.mins} minutes at a brisk pace: full sentences, no singing. No nicotine for the hour before.</p><p class="note">Start the clock as you step out. If the page reloads, the clock carries on from the right time.</p>`
+     :`<p>About ${minutes(s)} minutes. Clear a space the size of a yoga mat. ${s.type==="strength"?"Put your dumbbells and kettlebell within reach, plus a sturdy chair.":s.w>4?"Have the kettlebell and light dumbbells ready.":"A sturdy chair is all you need."}</p>
+     <p class="note">${s.type==="hiit"?"Pace yourself so you can still say a short sentence. Gasping means slow down. No nicotine for the hour before.":WEEKNOTE[s.w-1]}</p>
+     <p class="muted small">The warm-up runs on its own timer with beeps for the last three seconds. Turn your phone volume up.</p>`}`;
+    foot=`<button class="btn primary" data-a="next">${s.type==="walk"?"Start walk":"Start warm-up"}</button>`;
   }else if(st.k==="timed"){
     cls=st.ph?"phase-"+st.ph:"";
     b=`<p class="eyebrow center">${st.g}</p><p class="ptitle">${st.n}</p><p class="center">${st.c||""}</p>
@@ -460,12 +482,12 @@ resume(){openPlayer(S.active.sid,true)},
 discard(){S.active=null;save();render()},
 next(){const st=P.steps[P.idx];if(st.k==="intro")beep(520,.15);if(P.idx<P.steps.length-1)enter(P.idx+1)},
 prev(){if(P.idx>0)enter(P.idx-1,false)},
-pause(){if(P.run){P.left=P.end-Date.now();P.run=false}else{const f=document.getElementById("in-w");if(f)P.cur.w=Math.max(0,+f.value||0);beep(520,.12);startT()}draw()},
+pause(){if(P.run){P.left=P.end-Date.now();P.run=false;if(S.active){S.active.end=0;save()}}else{const f=document.getElementById("in-w");if(f)P.cur.w=Math.max(0,+f.value||0);beep(520,.12);startT()}draw()},
 plus(){P.left=(P.run?P.end-Date.now():P.left)+15000;P.total=Math.max(P.total,P.left);if(P.run)P.end=Date.now()+P.left;paint()},
 bump(el){const f=el.dataset.f;P.cur[f]=Math.max(0,Math.round(((+P.cur[f]||0)+(+el.dataset.d))*2)/2);document.getElementById("in-"+f).value=P.cur[f]},
 setdone(){const st=P.steps[P.idx];record(st,{w:+P.cur.w||0,r:+P.cur.r||0});beep(520,.12);enter(P.idx+1)},
 sound(){S.sound=!S.sound;save();draw()},
-askquit(){P.ask=true;if(P.run){P.left=P.end-Date.now();P.run=false}draw()},
+askquit(){P.ask=true;if(P.run&&P.s.type!=="walk"){P.left=P.end-Date.now();P.run=false}draw()},
 stay(){P.ask=false;draw()},
 quit(){closePlayer()},
 rpe(el){keepNote();P.rpe=+el.dataset.n;draw();restoreNote()},

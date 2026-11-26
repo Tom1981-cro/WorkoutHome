@@ -1,6 +1,7 @@
 # WorkoutHome
 
-A 12-week return-to-training plan (3 strength sessions + 1 conditioning session per week) with a guided
+A 12-week return-to-training plan (3 strength sessions, 1 brisk walk and 1 no-jump interval session per week,
+built around a previously injured knee and a low cardio base) with a guided
 session player: timed warm-up, set-by-set logging, rest timers, interval timers, cool-down, and progress tracking.
 
 Equipment assumed: adjustable dumbbells (2–12 kg), one 8 kg kettlebell, a sturdy chair.
